@@ -1,0 +1,534 @@
+/* ============================================================
+   IMPORTS GOOGLE FONTS
+   Fusionnés en un seul appel (était 5 imports séparés).
+   Kanit et Lalezar supprimés : non utilisés dans ce fichier
+   ni dans aucune des pages HTML associées.
+   ============================================================ */
+@import url("https://fonts.googleapis.com/css2?family=Akshar:wght@700&family=Inter:wght@700;800&family=Hepta+Slab:wght@700&display=swap");
+
+/* ============================================================
+   RESET & BASE
+   - min-height:100vh supprimé sur body : redondant, le contenu
+     détermine la hauteur naturellement.
+   - max-width:100% supprimé : redondant avec width:100%.
+   ============================================================ */
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background-color: white;
+}
+
+/* ============================================================
+   NAVBAR
+   ============================================================ */
+.navbar {
+  width: 100%;
+  padding: 20px 40px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  font-family: "Akshar", sans-serif;
+  box-sizing: border-box;
+}
+
+/* ============================================================
+   PILULES (navbar)
+   - transition déplacée sur .pill (pas seulement dans :hover)
+     pour que l'animation soit fluide dans les deux sens.
+   ============================================================ */
+.pill {
+  background-color: #4d67f6;
+  color: white;
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 18px;
+  display: flex;
+  gap: 25px;
+  align-items: center;
+  text-decoration: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease; /* était uniquement dans :hover */
+}
+
+.name-pill {
+  justify-self: start;
+}
+.contact-pill {
+  justify-self: end;
+}
+
+.pill:hover {
+  transform: translateY(-2px);
+}
+
+/* Liens internes de la pilule centrale */
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  white-space: nowrap;
+  /* justify-self:center supprimé : sans effet sur un élément
+     flex-enfant (ne fonctionne que dans un contexte grid direct) */
+}
+
+/* ============================================================
+   SECTION PAGE PROJET
+   Mise en page 2 colonnes égales.
+   ============================================================ */
+.project-page {
+  width: 100%;
+  min-height: 80vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  padding: 3rem 6rem;
+  box-sizing: border-box;
+  align-items: stretch; /* les deux colonnes ont la même hauteur */
+}
+
+/* ============================================================
+   COLONNE GAUCHE — DESCRIPTION
+   ============================================================ */
+.project-description {
+  background: #ec6d49;
+  padding: 2.5rem;
+  border-radius: 30px;
+  color: white;
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.7;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  justify-content: flex-start;
+}
+
+.project-title {
+  font-family: "Inter", sans-serif;
+  font-size: 32px;
+  font-weight: 800;
+  margin: 0;
+}
+
+/* ============================================================
+   COLONNE DROITE — IMAGE + TECHNOLOGIES
+   height:100% supprimé : align-items:stretch sur le parent
+   grid s'en charge déjà.
+   ============================================================ */
+.project-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* image en haut, techno en bas */
+}
+
+/* Bloc image */
+.project-image {
+  width: 100%;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 30px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+.project-image img {
+  width: 100%;
+  border-radius: 30px;
+  display: block;
+}
+
+/* Bloc technologies
+   width:100% supprimé : dans un flex-column il prend déjà
+   toute la largeur disponible. */
+.project-tech {
+  background: #ec6d49;
+  padding: 1.5rem 2rem;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+.project-tech img {
+  width: auto;
+  height: 70px;
+}
+
+/* ============================================================
+   FOOTER
+   padding: 40px (était padding: 40px 40px — valeurs identiques).
+   ============================================================ */
+.section-footer {
+  position: relative;
+  width: 100%;
+  margin-top: 2.5rem;
+}
+
+.footer {
+  width: 100%;
+  background-color: #ece771;
+  padding: 40px; /* simplifié depuis padding: 40px 40px */
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  border-radius: 30px 30px 0 0;
+  box-sizing: border-box;
+}
+
+.footer-name {
+  justify-self: start;
+  font-family: "Akshar", sans-serif;
+}
+
+.footer-links {
+  display: flex;
+  gap: 25px;
+  justify-self: end;
+  margin-right: 80px;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  white-space: nowrap;
+  font-family: "Akshar", sans-serif;
+}
+
+/* ================================================================
+   BURGER & MOBILE MENU
+   Masqués sur desktop, activés uniquement dans le media query.
+   ================================================================ */
+.burger {
+  display: none;
+}
+.mobile-menu {
+  display: none;
+}
+
+/* ================================================================
+   RESPONSIVE MOBILE — max-width: 767px
+   Desktop (768px+) : aucune de ces règles ne s'applique.
+   ================================================================ */
+@media (max-width: 767px) {
+  /* ── Navbar ─────────────────────────────────────────────────── */
+  /* Passe en flex row : nom à gauche, burger à droite */
+  .navbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 16px;
+    position: relative; /* ancre le mobile-menu en position:absolute */
+    flex-wrap: wrap;
+  }
+
+  .name-pill {
+    font-size: 15px;
+    padding: 10px 20px;
+  }
+  .nav-links,
+  .contact-pill {
+    display: none;
+  } /* masqués sur mobile */
+
+  /* ── Bouton burger ───────────────────────────────────────────── */
+  .burger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    background: #4d67f6;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    padding: 0;
+    flex-shrink: 0;
+  }
+
+  .burger span {
+    display: block;
+    width: 22px;
+    height: 2.5px;
+    background: white;
+    border-radius: 2px;
+    transition:
+      transform 0.25s ease,
+      opacity 0.25s ease;
+    transform-origin: center;
+  }
+
+  /* Animation croix à l'ouverture */
+  .burger.open span:nth-child(1) {
+    transform: translateY(7.5px) rotate(45deg);
+  }
+  .burger.open span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  .burger.open span:nth-child(3) {
+    transform: translateY(-7.5px) rotate(-45deg);
+  }
+
+  /* ── Menu déroulant burger ───────────────────────────────────── */
+  /* position:absolute → flotte par-dessus le contenu, ne pousse pas la page */
+  .mobile-menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: #4d67f6;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  }
+
+  .mobile-menu.open {
+    display: flex;
+  }
+
+  .mobile-menu a {
+    color: white;
+    text-decoration: none;
+    font-family: "Akshar", sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    padding: 14px 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    transition: background 0.15s ease;
+  }
+
+  .mobile-menu a:last-child {
+    border-bottom: none;
+  }
+  .mobile-menu a:hover {
+    background: rgba(255, 255, 255, 0.12);
+  }
+
+  /* ── Layout page projet : 1 colonne ─────────────────────────── */
+  /*
+    Ordre voulu : image → technologies → description
+    Le HTML est : description (gauche) / image+tech (droite)
+    On utilise order pour réordonner sans toucher au HTML.
+  */
+  .project-page {
+    grid-template-columns: 1fr; /* 2 colonnes → 1 colonne */
+    gap: 1.5rem;
+    padding: 1.5rem 1rem;
+    min-height: auto;
+  }
+
+  .project-description {
+    order: 3;
+  } /* description en dernier */
+  .project-right {
+    order: 1;
+  } /* image + tech en premier */
+
+  /* Sur mobile : les blocs s'empilent naturellement sans espace forcé.
+     justify-content:space-between (desktop) est remplacé par flex-start
+     pour que l'image et le bloc tech aient la même hauteur naturelle. */
+  .project-right {
+    justify-content: flex-start;
+    gap: 1rem;
+  }
+
+  /* ── Bloc image ──────────────────────────────────────────────── */
+  .project-image {
+    padding: 0.5rem;
+    border-radius: 20px;
+    display: flex; /* permet de centrer l'image à l'intérieur */
+    justify-content: center;
+    align-items: center;
+  }
+
+  .project-image img {
+    border-radius: 14px;
+    width: 95%; /* l'image ne dépasse jamais le bloc */
+    max-width: 100%; /* sécurité contre le style inline height:300px de tr.html */
+    height: auto !important; /* annule le style inline height:300px sur tr.html */
+    display: block;
+  }
+
+  /* ── Bloc technologies ───────────────────────────────────────── */
+  .project-tech {
+    padding: 1rem 1.5rem;
+    border-radius: 20px;
+    gap: 1.5rem; /* réduit l'espace entre icônes sur petit écran */
+    flex-wrap: wrap; /* si beaucoup d'icônes, elles passent à la ligne */
+  }
+
+  .project-tech img {
+    height: 50px;
+  } /* icônes légèrement réduites */
+
+  /* ── Bloc description ────────────────────────────────────────── */
+  .project-description {
+    padding: 1.5rem;
+    border-radius: 20px;
+    font-size: 16px; /* légèrement réduit pour la lisibilité mobile */
+    gap: 1rem;
+  }
+
+  .project-title {
+    font-size: 24px;
+  }
+
+  /* ── Footer ──────────────────────────────────────────────────── */
+  .footer {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 14px;
+    padding: 22px 16px;
+    border-radius: 20px 20px 0 0;
+  }
+
+  .footer-name {
+    justify-self: center;
+  }
+  .footer-links {
+    justify-self: center;
+    margin-right: 0;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+} /* fin @media (max-width: 767px) */
+
+/* ================================================================
+   RESPONSIVE GRAND ÉCRAN — 1600px et plus
+   Textes, espacements et éléments agrandis proportionnellement.
+   ================================================================ */
+@media (min-width: 1600px) {
+  /* ── Navbar ─────────────────────────────────────────────────── */
+  .navbar {
+    padding: 24px 60px;
+  }
+
+  .pill {
+    font-size: 22px;
+    padding: 14px 36px;
+    gap: 30px;
+  }
+
+  /* ── Layout page projet ──────────────────────────────────────── */
+  .project-page {
+    gap: 5rem;
+    padding: 5rem 8rem;
+  }
+
+  /* ── Colonne gauche : description ────────────────────────────── */
+  .project-description {
+    font-size: 24px;
+    padding: 3rem;
+    gap: 2rem;
+    border-radius: 36px;
+  }
+
+  .project-title {
+    font-size: 40px;
+  }
+
+  /* ── Colonne droite : image ──────────────────────────────────── */
+  .project-image {
+    padding: 2rem;
+    border-radius: 36px;
+  }
+
+  /* ── Colonne droite : technologies ──────────────────────────── */
+  .project-tech {
+    padding: 2rem 2.5rem;
+    border-radius: 36px;
+    gap: 4rem;
+  }
+
+  .project-tech img {
+    height: 90px;
+  }
+
+  /* ── Footer ──────────────────────────────────────────────────── */
+  .footer {
+    padding: 52px 60px;
+  }
+
+  .footer-links {
+    gap: 32px;
+    margin-right: 100px;
+  }
+} /* fin @media (min-width: 1600px) */
+
+/* ============================================================
+   PILULE "RETOUR" — lien vers projets.html
+   Positionnée en bas à gauche, juste au-dessus du footer.
+   ============================================================ */
+.retour-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #4d67f6;
+  color: white;
+  text-decoration: none;
+  font-family: "Akshar", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  padding: 12px 28px;
+  border-radius: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease;
+  margin: 0 0 1.5rem 6rem; /* aligne avec le padding de .project-page */
+}
+
+.retour-link:hover {
+  transform: translateY(-2px);
+}
+
+.retour-link img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  display: block;
+}
+
+/* ── Grand écran ─────────────────────────────────────────────── */
+@media (min-width: 1600px) {
+  .retour-link {
+    font-size: 22px;
+    padding: 14px 36px;
+    margin-left: 8rem;
+    gap: 12px;
+  }
+  .retour-link img {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+/* ── Mobile ──────────────────────────────────────────────────── */
+@media (max-width: 767px) {
+  .retour-link {
+    font-size: 16px;
+    padding: 10px 20px;
+    margin: 0 0 1rem 1rem;
+    gap: 8px;
+  }
+  .retour-link img {
+    width: 20px;
+    height: 20px;
+  }
+}

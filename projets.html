@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projets</title>
+    <link rel="stylesheet" href="projets.css" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+  </head>
+  <body>
+    <header></header>
+
+    <section class="projects-section">
+      <!-- BLOB GAUCHE -->
+      <img
+        src="images/blob/blob-left.png"
+        alt="blob gauche"
+        class="blob blob-left"
+      />
+
+      <!-- BLOB DROIT -->
+      <img
+        src="images/blob/blob-right-top.png"
+        alt="blob droit"
+        class="blob blob-right"
+      />
+
+      <!-- CONTENU CENTRAL -->
+      <div class="projects-center">
+        <!-- TITRE -->
+        <div class="pill-red projects-title">Projets</div>
+
+        <!-- TEXTE INTRO -->
+        <p class="projects-text">
+          Voici les projets que j’ai réalisés durant ma première année de
+          bachelor.
+        </p>
+      </div>
+
+      <!-- CATÉGORIES : en dehors de projects-center pour rester ancrées
+           en bas à gauche de projects-section (position:absolute) -->
+      <div class="categories-block">
+        <!-- Titre pilule : visible sur desktop, caché sur mobile (dans le toggle) -->
+        <div class="pill-red categories-title desktop-only">Catégories</div>
+
+        <!-- Bouton toggle visible uniquement sur mobile -->
+        <button class="categories-toggle" aria-expanded="false">
+          <span class="pill-red categories-title">
+            Catégories
+            <span class="categories-arrow">▾</span>
+          </span>
+        </button>
+
+        <div class="categories-list">
+          <a href="#web1" class="pill-blue">Web</a>
+          <a href="#réseau1" class="pill-orange">Réseau</a>
+          <a href="#projets-c1" class="pill-yellow">Projets C</a>
+          <a href="#bdd1" class="pill-blue">Base de données</a>
+        </div>
+      </div>
+
+      <script>
+        const toggle = document.querySelector(".categories-toggle");
+        const list = document.querySelector(".categories-list");
+
+        if (toggle) {
+          const arrow = toggle.querySelector(".categories-arrow");
+
+          toggle.addEventListener("click", function () {
+            const isOpen = list.classList.toggle("open");
+            toggle.setAttribute("aria-expanded", isOpen);
+            arrow.textContent = isOpen ? "▴" : "▾";
+          });
+
+          list.querySelectorAll("a").forEach(function (a) {
+            a.addEventListener("click", function () {
+              list.classList.remove("open");
+              toggle.setAttribute("aria-expanded", false);
+              arrow.textContent = "▾";
+            });
+          });
+        }
+      </script>
+
+      <!-- PILULE SECTION SUIVANTE -->
+      <a href="#web1" id="web1" class="web-pill">Web</a>
+    </section>
+
+    <section id="web" class="carousel-section">
+      <!-- BOUTON GAUCHE -->
+      <button
+        class="carousel-arrow left-arrow"
+        style="background-color: #ece771"
+      >
+        <img
+          src="images/fleches/fleche-gauche.png"
+          alt="précédent"
+          style="background-color: #ece771"
+        />
+      </button>
+
+      <!-- CONTENEUR DES CARTES -->
+      <div class="carousel-container">
+        <!-- CARTE CENTRALE (ACTIVE) -->
+        <div class="project-card card-center" data-index="3">
+          <img
+            src="images/illustrations/pokedex.png"
+            class="project-img"
+            alt="Projet 1"
+          />
+          <h3 class="project-title">Pokédex</h3>
+          <p class="project-desc">
+            Réalisation d'un site web sur le thème des pokémon avec l'aide d'une
+            API externe pour récupérer une liste de pokémons. Possibilité de les
+            afficher, de trier les pokémons en fonction de leurs types, de leurs
+            générations et de constituer sa propre équipe.
+          </p>
+          <a href="pokedex.html" class="project-btn">
+            <img
+              src="images/fleches/fleche.png"
+              alt="voir projet"
+              style="
+                background-color: #ece771;
+                border-radius: 30px;
+                bottom: -10px;
+              "
+            />
+          </a>
+        </div>
+
+        <!-- INDICATEUR -->
+        <div class="carousel-indicator">1/3</div>
+
+        <!-- CARTE DROITE -->
+        <div class="project-card card-right" data-index="2">
+          <img
+            src="images/illustrations/blog.png"
+            class="project-img"
+            alt="Projet 2"
+          />
+          <h3 class="project-title">Blog passion</h3>
+          <p class="project-desc">
+            Initiation à la création de sites web en HTML et CSS sous la forme
+            d'un blog sur le thème des plantes d'intérieur avec des photos, des
+            liens...
+          </p>
+          <a href="blog.html" class="project-btn">
+            <img
+              src="images/fleches/fleche.png"
+              alt="voir projet"
+              style="background-color: #ece771; border-radius: 30px"
+            />
+          </a>
+        </div>
+      </div>
+
+      <!-- BOUTON DROIT -->
+      <button
+        class="carousel-arrow right-arrow"
+        style="background-color: #ece771"
+      >
+        <img
+          src="images/fleches/fleche-droite.png"
+          alt="suivant"
+          style="background-color: #ece771"
+        />
+      </button>
+
+      <!-- PILULE SECTION SUIVANTE -->
+      <a href="#réseau1" id="réseau1" class="réseau-pill">Réseau</a>
+    </section>
+
+    <section id="reseau" class="carousel-section">
+      <button
+        class="carousel-arrow left-arrow"
+        style="background-color: #ec6d49"
+        disabled
+      >
+        <img
+          src="images/fleches/fleche-blanche-gauche.png"
+          alt="précédent"
+          style="background-color: #ec6d49"
+        />
+      </button>
+
+      <div class="carousel-container">
+        <div
+          class="project-card card-center"
+          style="background-color: #4d67f6"
+          data-index="1"
+        >
+          <img
+            src="images/illustrations/reseau.png"
+            class="project-img"
+            alt="Projet Réseau"
+          />
+          <h3 class="project-title">
+            Plan d'adressage IP d'une petite entreprise
+          </h3>
+          <p class="project-desc">
+            Attribution des adresses IP pour chaque machine et représentation du
+            réseau sous forme de schéma, ainsi que la configuration des machines
+            sur Cisco Packet Tracer.
+          </p>
+          <a
+            href="reseau.html"
+            class="project-btn"
+            style="background-color: #ec6d49"
+          >
+            <img src="images/fleches/fleche-blanche.png" alt="voir projet" />
+          </a>
+
+          <div class="carousel-indicator" style="color: black">1/1</div>
+        </div>
+      </div>
+
+      <button
+        class="carousel-arrow right-arrow"
+        style="background-color: #ec6d49"
+        disabled
+      >
+        <img
+          src="images/fleches/fleche-droite-blanche.png"
+          alt="suivant"
+          style="background-color: #ec6d49"
+        />
+      </button>
+      <a href="#projets-c1" id="projets-c1" class="C-pill">Projets C</a>
+    </section>
+
+    <section id="C" class="carousel-section">
+      <!-- BOUTON GAUCHE -->
+      <button
+        class="carousel-arrow left-arrow"
+        style="background-color: #4d67f6"
+      >
+        <img
+          src="images/fleches/fleche-blanche-gauche.png"
+          alt="précédent"
+          style="background-color: #4d67f6"
+        />
+      </button>
+
+      <!-- CONTENEUR DES CARTES -->
+      <div class="carousel-container">
+        <!-- CARTE GAUCHE -->
+        <div
+          class="project-card card-left"
+          data-index="3"
+          style="background-color: #ece771"
+        >
+          <img
+            src="images/illustrations/strlen.png"
+            class="project-img"
+            alt="Projet 1"
+          />
+          <h3 class="project-title" style="color: black">
+            Recode de petites fonctions (strlen, puts...)
+          </h3>
+          <p class="project-desc" style="color: black">
+            Recode de petite fonction en C de la bibliothèque standard avec
+            obligation de respecter une norme.
+          </p>
+          <a
+            href="strlen.html"
+            class="project-btn"
+            style="background-color: #4d67f6"
+          >
+            <img src="images/fleches/fleche-blanche.png" alt="voir projet" />
+          </a>
+        </div>
+
+        <!-- CARTE CENTRALE (ACTIVE) -->
+        <div
+          class="project-card card-center"
+          data-index="1"
+          style="background-color: #ece771"
+        >
+          <img
+            src="images/illustrations/tr.png"
+            class="project-img"
+            alt="Projet 2"
+          />
+          <h3 class="project-title" style="color: black">
+            Recode du programme TR
+          </h3>
+          <p class="project-desc" style="color: black">
+            TR est un programme qui peut changer, supprimer, conserver des
+            caractères qu'il a lus sur l'entrée standard.
+          </p>
+          <a
+            href="tr.html"
+            class="project-btn"
+            style="background-color: #4d67f6"
+          >
+            <img src="images/fleches/fleche-blanche.png" alt="voir projet" />
+          </a>
+        </div>
+
+        <!-- INDICATEUR -->
+        <div class="carousel-indicator">2/3</div>
+
+        <!-- CARTE DROITE -->
+        <div
+          class="project-card card-right"
+          data-index="2"
+          style="background-color: #ece771"
+        >
+          <img
+            src="images/illustrations/maze.png"
+            class="project-img"
+            alt="Projet 3"
+          />
+          <h3 class="project-title" style="color: black">Maze</h3>
+          <p class="project-desc" style="color: black">
+            Maze est un programme capable de résoudre un labyrinthe en tenant la
+            gauche.
+          </p>
+          <a
+            href="maze.html"
+            class="project-btn"
+            style="background-color: #4d67f6"
+          >
+            <img src="images/fleches/fleche-blanche.png" alt="voir projet" />
+          </a>
+        </div>
+      </div>
+
+      <!-- BOUTON DROIT -->
+      <button
+        class="carousel-arrow right-arrow"
+        style="background-color: #4d67f6"
+      >
+        <img
+          src="images/fleches/fleche-droite-blanche.png"
+          alt="suivant"
+          style="background-color: #4d67f6"
+        />
+      </button>
+
+      <!-- PILULE SECTION SUIVANTE -->
+      <a href="#bdd1" id="bdd1" class="bdd-pill">Bases de données</a>
+    </section>
+
+    <section id="BDD" class="carousel-section">
+      <button
+        class="carousel-arrow left-arrow"
+        style="background-color: #ece771"
+        disabled
+      >
+        <img
+          src="images/fleches/fleche-gauche.png"
+          alt="précédent"
+          style="background-color: #ece771"
+        />
+      </button>
+
+      <div class="carousel-container">
+        <div
+          class="project-card card-center"
+          style="background-color: #ec6d49"
+          data-index="1"
+        >
+          <img
+            src="images/illustrations/BBD.png"
+            class="project-img"
+            alt="Projet Base de données"
+          />
+          <h3 class="project-title">Base de données d'une école</h3>
+          <p class="project-desc">
+            Création d'une base de données MySQL pour une école avec le suivi
+            des absences, des notes.
+          </p>
+          <a
+            href="bdd.html"
+            class="project-btn"
+            style="background-color: #ece771"
+          >
+            <img src="images/fleches/fleche.png" alt="voir projet" />
+          </a>
+
+          <div class="carousel-indicator">1/1</div>
+        </div>
+      </div>
+
+      <button
+        class="carousel-arrow right-arrow"
+        style="background-color: #ece771"
+        disabled
+      >
+        <img
+          src="images/fleches/fleche-droite.png"
+          alt="suivant"
+          style="background-color: #ece771"
+        />
+      </button>
+    </section>
+    <section class="section-footer">
+<footer></footer>
+
+    <button id="back-to-top" class="back-to-top">
+      <img src="images/fleches/fleche-haut.png" alt="Retour en haut" />
+    </button>
+
+    <script>
+      document.querySelector(".back-to-top").addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      });
+    </script>
+    <script src="carrousel.js"></script>
+  </body>
+</html>

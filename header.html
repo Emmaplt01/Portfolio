@@ -1,0 +1,44 @@
+<nav class="navbar">
+  <a href="index.html" class="pill name-pill">Emma Ploton</a>
+
+  <div class="pill nav-links">
+    <a href="index.html">Accueil</a>
+    <a href="skills.html">Skills</a>
+    <a href="projets.html">Projets</a>
+  </div>
+
+  <a href="contact.html" class="pill contact-pill">Contact</a>
+
+  <!-- Burger mobile uniquement (masqué sur desktop via CSS) -->
+  <button class="burger" aria-label="Menu" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <!-- Menu déroulant mobile -->
+  <div class="mobile-menu">
+    <a href="index.html">Accueil</a>
+    <a href="skills.html">Skills</a>
+    <a href="projets.html">Projets</a>
+    <a href="#contact1">Contact</a>
+  </div>
+</nav>
+
+<script>
+  const burger = document.querySelector(".burger");
+  const mobileMenu = document.querySelector(".mobile-menu");
+  burger.addEventListener("click", function () {
+    const isOpen = mobileMenu.classList.toggle("open");
+    burger.classList.toggle("open", isOpen);
+    burger.setAttribute("aria-expanded", isOpen);
+  });
+  // Ferme le menu au clic sur un lien
+  mobileMenu.querySelectorAll("a").forEach(function (link) {
+    link.addEventListener("click", function () {
+      mobileMenu.classList.remove("open");
+      burger.classList.remove("open");
+      burger.setAttribute("aria-expanded", false);
+    });
+  });
+</script>

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact</title>
+    <link rel="stylesheet" href="contact.css" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+  </head>
+  <body>
+    <header></header>
+
+    <section class="contact-section" style="position: relative">
+      <div class="contact-title">Me contacter</div>
+      <div class="blob blob-left">
+        <img src="images/blob/blob-left.png" alt="blob jaune" />
+      </div>
+      <form action="https://api.web3forms.com/submit" method="POST">
+        <input
+          type="hidden"
+          name="access_key"
+          value="1194ec92-0e96-4f0d-bcf1-0fc6b8b8dfdc"
+        />
+        <input type="email" name="email" placeholder="Email" required />
+        <input type="text" name="name" placeholder="Nom" required />
+        <input type="text" name="objet" placeholder="Objet" required />
+        <textarea name="message" placeholder="Message..." required></textarea>
+
+        <button type="submit">Envoyer le message</button>
+      </form>
+      <div class="blob blob-right">
+        <img src="images/blob/blob-right-top.png" alt="blob jaune" />
+      </div>
+    </section>
+
+    <footer></footer>
+  </body>
+</html>

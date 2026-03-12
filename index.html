@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="fd">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Page accueil</title>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+  </head>
+  <body>
+    <header></header>
+    <section class="hero">
+      <!-- BLOB GAUCHE -->
+      <div class="blob blob-left">
+        <img src="images/blob/blob-left.png" alt="blob jaune" />
+      </div>
+
+      <!-- BLOB DROITE -->
+      <div class="blob blob-right">
+        <img src="images/blob/blob-right-top.png" alt="blob jaune" />
+      </div>
+
+      <!-- CONTENU CENTRAL -->
+      <div class="hero-content">
+        <h1 class="hello">
+          <span class="hello-text">Hello</span><span class="hello-bang">!</span>
+        </h1>
+
+        <h2 class="name">Emma Ploton</h2>
+        <h3 class="subtitle">Étudiante en programmation</h3>
+
+        <!-- Flèche que tu ajouteras toi-même -->
+        <div class="arrow-placeholder">
+          <img
+            src="images/fleches/arrow.jpg"
+            alt="fleche vers le bas"
+            style="width: 75px"
+          />
+        </div>
+      </div>
+      <!-- BOUTON ABOUT ME -->
+      <a href="#about1" id="about1" class="about-pill">About me</a>
+    </section>
+    <section class="about-section" id="about">
+      <!-- BLOB -->
+      <div class="blob blob-about">
+        <img src="images/blob/blob-texte.png" alt="" />
+      </div>
+
+      <!-- CONTENU TEXTE + PHOTO -->
+      <div class="about-content">
+        <!-- PHOTO -->
+        <div class="about-photo">
+          <img src="images/illustrations/photo école.png" alt="" />
+        </div>
+
+        <!-- TEXTE -->
+        <div class="about-text">
+          <p>
+            Moi c’est Emma. <br />
+            J’ai 19 ans comme vous vous en doutez certainement, je suis
+            passionné par la programmation. Je suis actuellement en première
+            année de bachelor programmation informatique à l’Ecole 89 (77). Je
+            suis à la recherche d’<span style="color: #ec6d49">un stage</span>
+            de 2 mois pour la fin de l’année scolaire et d’<span
+              style="color: #ec6d49"
+              >une alternance</span
+            >
+            pour la rentrée 2026 dans le domaine du développement informatique.
+          </p>
+        </div>
+      </div>
+
+      <!-- PILULES PASSIONS -->
+      <div class="passions">
+        <div class="pill-red">Mes passions</div>
+
+        <div class="pill-yellow">La formule 1 🏁</div>
+        <div class="pill-yellow">La musique 🎵</div>
+        <div class="pill-yellow">La programmation 💻</div>
+      </div>
+
+      <!-- PILULE MON PARCOURS -->
+      <a href="#parcours1" id="parcours1" class="parcours-pill">Mon parcours</a>
+    </section>
+
+    <section id="parcours" class="section-parcours">
+      <img src="images/illustrations/parcours.png" alt="" class="schema" />
+
+      <a href="#contact1" id="contact1" class="contact-pill-bottom">Contact</a>
+    </section>
+
+    <section id="contact" class="section-contact">
+      <div class="contact-grid">
+        <!-- LinkedIn -->
+        <a
+          href="https://www.linkedin.com/in/emma-ploton/"
+          target="_blank"
+          class="linkedin-card"
+        >
+          <img src="images/icons/linkedin.png" alt="LinkedIn" />
+        </a>
+
+        <!-- Email (renvoie vers ta page contact.html) -->
+        <a href="contact.html" target="_blank" class="email-card">
+          <img src="images/icons/email.png" alt="Email" />
+          <p class="email-text">emmaploton01@gmail.com</p>
+        </a>
+
+        <!-- GitHub -->
+        <a
+          href="https://github.com/Emmaplt01"
+          target="_blank"
+          class="github-card"
+        >
+          <img src="images/icons/github.png" alt="GitHub" />
+        </a>
+      </div>
+    </section>
+
+    <footer></footer>
+    <script src="composants.js"></script>
+  </body>
+</html>

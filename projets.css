@@ -1,0 +1,1061 @@
+/* ============================================================
+   IMPORTS GOOGLE FONTS
+   Lalezar conservé : utilisé pour .categories-title
+   Kanit supprimé : non utilisé dans le HTML
+   ============================================================ */
+@import url("https://fonts.googleapis.com/css2?family=Akshar:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lalezar&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Hepta+Slab:wght@700&display=swap");
+
+/* ============================================================
+   RESET & BASE
+   min-height et max-width supprimés : redondants sur body
+   ============================================================ */
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background-color: white;
+  overflow-x: hidden;
+}
+
+/* ============================================================
+   SECTIONS DE CATÉGORIES
+   Propriétés communes regroupées, seules les couleurs
+   de fond restent séparées.
+   padding-bottom harmonisé : valeurs proches fusionnées
+   à 6rem (sauf #reseau et #BDD qui avaient des valeurs
+   légèrement différentes, conservées).
+   ============================================================ */
+#web,
+#reseau,
+#C,
+#BDD {
+  padding-top: 3.5rem;
+  margin-top: 0;
+}
+
+#web {
+  background: #4d67f6;
+  padding-bottom: 6rem;
+}
+#reseau {
+  background: #ece771;
+  padding-bottom: 7rem;
+}
+#C {
+  background: #ec6d49;
+  padding-bottom: 6rem;
+}
+#BDD {
+  background: #4d67f6;
+  padding-bottom: 8rem;
+}
+
+/* ============================================================
+   NAVBAR
+   ============================================================ */
+.navbar {
+  width: 100%;
+  padding: 20px 40px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  font-family: "Akshar", sans-serif;
+  box-sizing: border-box;
+}
+
+/* ============================================================
+   PILULES NAVBAR — style commun
+   transition déplacée sur .pill directement (pas seulement
+   dans :hover) pour animer aussi la sortie du hover.
+   ============================================================ */
+.pill {
+  background-color: #4d67f6;
+  color: white;
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 18px;
+  display: flex;
+  gap: 25px;
+  align-items: center;
+  text-decoration: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease;
+}
+
+.pill:hover {
+  transform: translateY(-2px);
+}
+
+.name-pill {
+  justify-self: start;
+}
+.contact-pill {
+  justify-self: end;
+}
+
+/* Liens dans la pilule centrale */
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  white-space: nowrap;
+  /* justify-self et overflow supprimés : sans effet sur inline */
+}
+
+/* ============================================================
+   PILULES DE NAVIGATION ENTRE SECTIONS
+   Propriétés communes regroupées.
+   ============================================================ */
+.web-pill,
+.réseau-pill,
+.C-pill,
+.bdd-pill {
+  position: absolute;
+  bottom: 0;
+  padding: 18px 100px;
+  font-family: "Akshar", sans-serif;
+  font-size: 35px;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 30px 30px 0 0;
+  color: white;
+}
+
+/* web-pill : en bas à droite, légèrement décalée */
+.web-pill {
+  right: 0;
+  bottom: -12px;
+  background: #4d67f6;
+}
+
+/* réseau-pill et bdd-pill : en bas à gauche */
+.réseau-pill {
+  left: 0;
+  background: #ece771;
+  color: black;
+  z-index: 5;
+}
+.bdd-pill {
+  left: 0;
+  background: #4d67f6;
+  z-index: 5;
+}
+
+/* C-pill : en bas à droite */
+.C-pill {
+  right: 0;
+  background: #ec6d49;
+  z-index: 1;
+}
+
+/* ============================================================
+   SECTION PROJETS (hero)
+   height: 85vh → min-height pour éviter l'étirement inutile
+   ============================================================ */
+.projects-section {
+  position: relative;
+  width: 100%;
+  min-height: 85vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ============================================================
+   BLOBS
+   ============================================================ */
+.blob {
+  position: absolute;
+  width: 420px;
+  height: auto;
+  z-index: 0; /* derrière tout le contenu */
+}
+
+.blob-left {
+  left: 0;
+  top: 0;
+  transform: translate(-20%, 20%);
+}
+
+.blob-right {
+  right: 0;
+  top: 4rem;
+  transform: translate(20%, -10%);
+}
+
+/* ============================================================
+   CONTENU CENTRAL PROJETS
+   ============================================================ */
+.projects-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+  text-align: center;
+  margin-bottom: 9rem;
+  position: relative;
+  z-index: 1; /* devant les blobs */
+}
+
+/* Titre "Projets" */
+.projects-title {
+  font-family: "Inter", sans-serif;
+  font-size: 100px;
+  background: #ec6d49;
+  color: white;
+  padding: 10px 40px;
+  border-radius: 30px;
+}
+
+/* Texte intro */
+.projects-text {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  width: 60%;
+  line-height: 1.5;
+}
+
+/* ============================================================
+   BLOC CATÉGORIES
+   ============================================================ */
+.categories-block {
+  position: absolute;
+  left: 3rem;
+  bottom: 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  align-items: flex-start;
+}
+
+.categories-title {
+  font-family: "Lalezar", sans-serif;
+  font-size: 36px;
+  background: #ec6d49;
+  color: white;
+  padding: 5px 30px;
+  border-radius: 30px;
+}
+
+.categories-list {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* ============================================================
+   PILULES CATÉGORIES
+   Propriétés communes regroupées : seule la couleur
+   de fond / texte reste séparée.
+   ============================================================ */
+.pill-blue,
+.pill-orange,
+.pill-yellow {
+  padding: 12px 35px;
+  border-radius: 30px;
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.pill-blue {
+  background: #4d67f6;
+  color: white;
+}
+.pill-orange {
+  background: #ec6d49;
+  color: white;
+}
+.pill-yellow {
+  background: #ece771;
+  color: black;
+}
+
+/* ============================================================
+   SECTION CARROUSEL
+   height: auto conservé (déjà correct)
+   ============================================================ */
+.carousel-section {
+  position: relative;
+  width: 100%;
+  height: auto;
+  display: flex;
+  margin-top: 3rem;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ============================================================
+   BOUTONS GAUCHE / DROITE DU CARROUSEL
+   Propriétés communes regroupées.
+   ============================================================ */
+.carousel-arrow {
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 30px;
+}
+
+.left-arrow {
+  left: 2rem;
+}
+.right-arrow {
+  right: 2rem;
+}
+
+/* background-color sur l'élément (pas l'img) : défini via style
+   inline dans le HTML car il varie selon la section */
+.carousel-arrow img {
+  width: 70px;
+  height: auto;
+  border-radius: 30px;
+  /* background-color retiré ici : dupliqué depuis le parent,
+     géré via style inline dans le HTML */
+}
+
+/* ============================================================
+   CONTENEUR DES CARTES CARROUSEL
+   Les deux déclarations .carousel-container du CSS original
+   sont fusionnées ici en une seule.
+   ============================================================ */
+.carousel-container {
+  position: relative;
+  width: 1100px;
+  height: 520px;
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+}
+
+/* ============================================================
+   CARTES PROJET
+   Les deux déclarations .project-card du CSS original
+   sont fusionnées ici en une seule.
+   ============================================================ */
+.project-card {
+  background: #ec6d49;
+  width: 350px;
+  height: 500px;
+  border-radius: 25px;
+  padding: 20px;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  transition:
+    transform 0.45s ease,
+    opacity 0.45s ease;
+  /* transition durée harmonisée à 0.45s (était 0.4s dans
+     la 1ère déclaration, 0.45s dans la 2ème) */
+}
+
+/* Image du projet */
+.project-img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+/* Titre de la carte */
+.project-title {
+  font-family: "Inter", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  margin-top: 15px;
+  color: white;
+}
+
+/* Description de la carte */
+.project-desc {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  color: white;
+  margin-top: 10px;
+  line-height: 1.4;
+}
+
+/* Bouton flèche en bas à droite */
+.project-btn {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  border-radius: 30px;
+  /* background-color géré via style inline (varie par section) */
+}
+
+.project-btn img {
+  width: 45px;
+  height: auto;
+}
+
+/* Indicateur de position (ex : "1/3") */
+.carousel-indicator {
+  position: absolute;
+  left: 50%;
+  bottom: -15%;
+  transform: translateX(-50%);
+  font-family: "Inter", sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: white;
+}
+
+/* ============================================================
+   POSITIONS DES CARTES DANS LE CARROUSEL
+   La double déclaration de .card-out-left est supprimée :
+   la 2ème version (translateX absolu) écrasait la 1ère.
+   On conserve la version avec calc() pour la cohérence.
+   ============================================================ */
+.card-center {
+  transform: translateX(-50%) scale(1);
+  opacity: 1;
+}
+
+.card-left {
+  transform: translateX(calc(-50% - 380px)) scale(0.85);
+  opacity: 0.6;
+}
+
+.card-right {
+  transform: translateX(calc(-50% + 380px)) scale(0.85);
+  opacity: 0.6;
+}
+
+.card-out-left {
+  transform: translateX(calc(-50% - 760px)) scale(0.85);
+  opacity: 0;
+}
+
+.card-out-right {
+  transform: translateX(calc(-50% + 760px)) scale(0.85);
+  opacity: 0;
+}
+
+/* ============================================================
+   FOOTER
+   padding: 40px 40px → simplifié en padding: 40px
+   ============================================================ */
+.section-footer {
+  position: relative;
+  width: 100%;
+  background-color: #4d67f6;
+}
+
+.footer {
+  width: 100%;
+  background-color: white;
+  padding: 40px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  border-radius: 30px 30px 0 0;
+  box-sizing: border-box;
+}
+
+.footer-name {
+  justify-self: start;
+  font-family: "Akshar", sans-serif;
+}
+.footer-links {
+  display: flex;
+  gap: 25px;
+  justify-self: end;
+  margin-right: 80px;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  white-space: nowrap;
+  font-family: "Akshar", sans-serif;
+}
+
+/* ============================================================
+   BOUTON BACK TO TOP
+   ============================================================ */
+.back-to-top {
+  position: fixed;
+  width: 80px;
+  height: 80px;
+  bottom: 20px;
+  right: 20px;
+  background-color: #ffffff;
+  border-radius: 30px;
+  cursor: pointer;
+  border: none;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* empêche l'image de déborder */
+}
+
+/* Image du back-to-top : s'adapte au conteneur */
+.back-to-top img {
+  width: 70px;
+  height: 70px;
+  display: block;
+}
+
+/* ================================================================
+   BURGER & MOBILE MENU — masqués par défaut sur desktop
+   ================================================================ */
+.burger {
+  display: none;
+}
+.mobile-menu {
+  display: none;
+}
+
+/* Bouton toggle catégories : masqué sur desktop */
+.categories-toggle {
+  display: none;
+}
+
+/* Sur mobile : la version desktop-only de la pilule est masquée */
+
+/* ================================================================
+   RESPONSIVE MOBILE — jusqu'à 767px
+   Desktop (768px+) : aucune règle ne s'applique.
+   ================================================================ */
+@media (max-width: 767px) {
+  /* Masquer la pilule Catégories desktop sur mobile.
+     !important nécessaire : .categories-title reçoit display:inline-block
+     plus bas dans ce même media query, ce qui écraserait le none sans ça. */
+  .desktop-only {
+    display: none !important;
+  }
+
+  /* ── Navbar : nom à gauche, burger à droite ─────────────────── */
+  .navbar {
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    flex-wrap: wrap;
+  }
+
+  .name-pill {
+    font-size: 15px;
+    padding: 10px 20px;
+  }
+  .nav-links,
+  .contact-pill {
+    display: none;
+  }
+
+  /* Burger */
+  .burger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    background: #4d67f6;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    padding: 0;
+    flex-shrink: 0;
+  }
+
+  .burger span {
+    display: block;
+    width: 22px;
+    height: 2.5px;
+    background: white;
+    border-radius: 2px;
+    transition:
+      transform 0.25s ease,
+      opacity 0.25s ease;
+    transform-origin: center;
+  }
+
+  .burger.open span:nth-child(1) {
+    transform: translateY(7.5px) rotate(45deg);
+  }
+  .burger.open span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  .burger.open span:nth-child(3) {
+    transform: translateY(-7.5px) rotate(-45deg);
+  }
+
+  /* Menu déroulant burger */
+  .mobile-menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: #4d67f6;
+    border-radius: 16px;
+    margin-top: 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .mobile-menu.open {
+    display: flex;
+  }
+
+  .mobile-menu a {
+    color: white;
+    text-decoration: none;
+    font-family: "Akshar", sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    padding: 14px 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    transition: background 0.15s ease;
+  }
+
+  .mobile-menu a:last-child {
+    border-bottom: none;
+  }
+  .mobile-menu a:hover {
+    background: rgba(255, 255, 255, 0.12);
+  }
+
+  /* ── Section hero Projets ───────────────────────────────────── */
+  .projects-section {
+    min-height: auto;
+    padding: 32px 16px 70px;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 0;
+  }
+
+  /* Blobs réduits, décoratifs */
+  .blob {
+    width: 140px;
+    z-index: 0;
+  }
+  .blob-left {
+    transform: translate(-30%, 10%);
+  }
+  .blob-right {
+    transform: translate(30%, -10%);
+    top: 2rem;
+  }
+
+  /* Contenu central : sort du positionnement absolu,
+     s'intègre dans le flux normal */
+  .projects-center {
+    position: relative;
+    margin-bottom: 0;
+    width: 100%;
+    gap: 1rem;
+    padding-top: 10px;
+  }
+
+  /* Titre "Projets" */
+  .projects-title {
+    font-size: 48px;
+    padding: 6px 24px;
+  }
+
+  /* Texte intro */
+  .projects-text {
+    width: 90%;
+    font-size: 15px;
+    margin: 0 auto;
+  }
+
+  /* ── Bloc catégories → dropdown mobile ──────────────────────── */
+  /*
+    Sur desktop : .categories-block est en position:absolute.
+    Sur mobile : on le remet dans le flux, et les pilules
+    se cachent derrière un bouton toggle.
+  */
+  .categories-block {
+    position: static;
+    width: 90%;
+    margin: 30px auto;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  /* Bouton toggle : visible sur mobile */
+  .categories-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* flèche collée au texte, pas à droite */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    width: auto; /* bouton ne prend que la largeur nécessaire */
+    gap: 8px;
+  }
+
+  .categories-title {
+    font-size: 20px;
+    padding: 8px 20px;
+    display: inline-block;
+  }
+
+  .categories-arrow {
+    font-size: 22px;
+    color: #ffffff;
+    font-weight: 700;
+    transition: transform 0.2s ease;
+  }
+
+  /* Liste des catégories : masquée par défaut, visible quand .open */
+  .categories-list {
+    display: none;
+    position: absolute; /* 👈 clé : sort du flux */
+    top: 75%; /* juste sous le bouton */
+    left: 0;
+    width: 50%;
+    background: #ec6d49; /* ou ton fond */
+    padding: 0.5rem;
+    border-radius: 20px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+    z-index: 999; /* passe au-dessus du reste */
+  }
+
+  .pill-blue {
+    background-color: #ec6d49;
+  }
+
+  .pill-yellow {
+    background-color: #ec6d49;
+    color: white;
+  }
+  /* Quand elle est ouverte */
+  .categories-list.open {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  /* Liens dans le dropdown : pleine largeur */
+  .categories-list a {
+    display: block;
+    border-radius: 0;
+    padding: 14px 20px;
+    font-size: 16px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    text-align: left;
+  }
+
+  .categories-list a:last-child {
+    border-bottom: none;
+  }
+
+  /* Pilule "Web" → collée en bas à droite, coins haut arrondis */
+  .web-pill {
+    position: absolute;
+    bottom: 0;
+    right: 30px;
+    padding: 12px 24px;
+    font-size: 18px;
+    border-radius: 30px 30px 0 0;
+    max-width: 50vw;
+    box-sizing: border-box;
+  }
+
+  /* ── CARROUSEL MOBILE ───────────────────────────────────────── */
+  /*
+    Le JS tourne normalement : card-left / card-center / card-right
+    sont toujours attribuées. CSS mobile :
+    - card-center → visible, centrée
+    - card-left / card-right / card-out-* → masquées (opacity:0)
+    Les flèches sont en z-index élevé pour rester au premier plan.
+  */
+
+  .carousel-section {
+    margin-top: 0;
+    padding: 24px 60px 70px; /* espace latéral pour les flèches */
+    min-height: auto;
+    box-sizing: border-box;
+  }
+
+  /* Conteneur : taille réduite pour une seule carte */
+  .carousel-container {
+    width: 100%;
+    max-width: 260px;
+    height: 400px;
+  }
+
+  /* Carte réduite */
+  .project-card {
+    width: 240px;
+    height: 380px;
+    padding: 14px;
+  }
+
+  .project-img {
+    height: 150px;
+  }
+
+  .project-title {
+    font-size: 18px;
+    margin-top: 10px;
+  }
+  .project-desc {
+    font-size: 13px;
+    margin-top: 8px;
+  }
+
+  /* Carte centrale : visible et centrée */
+  .card-center {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 2;
+  }
+
+  /* Cartes latérales et hors-écran : masquées mais dans le DOM */
+  .card-left,
+  .card-right,
+  .card-out-left,
+  .card-out-right {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-50%) scale(0.85);
+  }
+
+  /* Flèches : au premier plan, positionnées de chaque côté */
+  .carousel-arrow {
+    z-index: 10; /* au-dessus des cartes et du contenu */
+    top: 45%;
+    border-radius: 16px;
+  }
+
+  .left-arrow {
+    left: 8px;
+  }
+  .right-arrow {
+    right: 8px;
+  }
+
+  .carousel-arrow img {
+    width: 40px;
+    border-radius: 16px;
+  }
+
+  /* Indicateur sous la carte */
+  .carousel-indicator {
+    bottom: -10%;
+    font-size: 16px;
+  }
+
+  /* ── Pilules de transition entre sections ───────────────────── */
+  .réseau-pill,
+  .bdd-pill,
+  .C-pill {
+    padding: 12px 24px;
+    font-size: 18px;
+    border-radius: 30px 30px 0 0;
+    max-width: 55vw;
+    box-sizing: border-box;
+  }
+
+  .réseau-pill {
+    left: 0;
+    right: auto;
+  }
+  .C-pill {
+    right: 0;
+    left: auto;
+  }
+  .bdd-pill {
+    left: 0;
+    right: auto;
+  }
+
+  /* ── Footer ─────────────────────────────────────────────────── */
+  .footer {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 14px;
+    padding: 22px 16px;
+    border-radius: 20px 20px 0 0;
+  }
+
+  .footer-name {
+    justify-self: center;
+  }
+  .footer-links {
+    justify-self: center;
+    margin-right: 0;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  /* ── Back-to-top ─────────────────────────────────────────────── */
+  .back-to-top {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    bottom: 14px;
+    right: 14px;
+  }
+
+  .back-to-top img {
+    width: 40px !important;
+    height: 40px !important;
+  }
+} /* fin @media (max-width: 767px) */
+
+/* ================================================================
+   RESPONSIVE GRAND ÉCRAN — 1600px et plus
+   Objectif : agrandir les textes et les éléments proportionnellement
+   pour éviter que tout paraisse trop petit sur grands moniteurs.
+   ================================================================ */
+@media (min-width: 1600px) {
+  /* ── Navbar ─────────────────────────────────────────────────── */
+  .navbar {
+    padding: 24px 60px;
+  }
+
+  .pill {
+    font-size: 22px;
+    padding: 14px 36px;
+    gap: 30px;
+  }
+
+  /* ── Hero Projets ────────────────────────────────────────────── */
+  .projects-title {
+    font-size: 130px;
+    padding: 14px 52px;
+  }
+
+  .projects-text {
+    font-size: 24px;
+    width: 55%;
+  }
+
+  /* ── Blobs ───────────────────────────────────────────────────── */
+  .blob {
+    width: 560px;
+  }
+
+  /* ── Bloc catégories ─────────────────────────────────────────── */
+  .categories-block {
+    left: 4rem;
+    bottom: 5rem;
+    gap: 1.5rem;
+  }
+
+  .categories-title {
+    font-size: 44px;
+    padding: 8px 38px;
+  }
+
+  .pill-blue,
+  .pill-orange,
+  .pill-yellow {
+    font-size: 24px;
+    padding: 14px 44px;
+  }
+
+  /* ── Pilules de transition entre sections ────────────────────── */
+  .web-pill,
+  .réseau-pill,
+  .C-pill,
+  .bdd-pill {
+    font-size: 44px;
+    padding: 22px 130px;
+  }
+
+  /* ── Carrousel ───────────────────────────────────────────────── */
+  .carousel-container {
+    width: 1400px;
+    height: 640px;
+  }
+
+  .project-card {
+    width: 440px;
+    height: 610px;
+    padding: 26px;
+  }
+
+  .card-left {
+    transform: translateX(calc(-50% - 480px)) scale(0.85);
+  }
+  .card-right {
+    transform: translateX(calc(-50% + 480px)) scale(0.85);
+  }
+  .card-out-left {
+    transform: translateX(calc(-50% - 960px)) scale(0.85);
+  }
+  .card-out-right {
+    transform: translateX(calc(-50% + 960px)) scale(0.85);
+  }
+
+  .project-img {
+    height: 270px;
+  }
+
+  .project-title {
+    font-size: 28px;
+    margin-top: 18px;
+  }
+
+  .project-desc {
+    font-size: 18px;
+    margin-top: 12px;
+  }
+
+  .project-btn img {
+    width: 56px;
+  }
+
+  .carousel-indicator {
+    font-size: 26px;
+  }
+
+  .carousel-arrow img {
+    width: 88px;
+  }
+
+  /* ── Footer ──────────────────────────────────────────────────── */
+  .footer {
+    padding: 52px 60px;
+  }
+
+  .footer-links {
+    gap: 32px;
+    margin-right: 100px;
+  }
+
+  /* ── Back-to-top ─────────────────────────────────────────────── */
+  .back-to-top {
+    width: 96px;
+    height: 96px;
+    border-radius: 36px;
+  }
+
+  .back-to-top img {
+    width: 84px;
+    height: 84px;
+  }
+} /* fin @media (min-width: 1600px) */

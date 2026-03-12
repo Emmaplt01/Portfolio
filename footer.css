@@ -1,0 +1,83 @@
+/* ============================================================
+   FOOTER — structure principale
+   ============================================================ */
+.footer-section {
+  width: 100%;
+  background-color: #ece771;
+}
+
+.footer {
+  width: 100%;
+  background: #ffffff;
+  padding: 40px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  border-radius: 30px 30px 0 0;
+  box-sizing: border-box;
+}
+
+.footer-name {
+  justify-self: start;
+  font-family: "Akshar", sans-serif;
+}
+
+.footer-links {
+  display: flex;
+  gap: 25px;
+  justify-self: end;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  white-space: nowrap;
+  font-family: "Akshar", sans-serif;
+}
+
+/* ============================================================
+   RESPONSIVE — GRAND ÉCRAN (1600px+)
+   ============================================================ */
+@media (min-width: 1600px) {
+  .footer {
+    padding: 50px 80px;
+  }
+}
+
+/* ============================================================
+   RESPONSIVE — TABLETTE (768px → 1023px)
+   ============================================================ */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .footer {
+    padding: 30px 24px;
+  }
+
+  .footer-links {
+    gap: 16px;
+  }
+}
+
+/* ============================================================
+   RESPONSIVE — MOBILE (≤ 767px)
+   ============================================================ */
+@media (max-width: 767px) {
+  .footer {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 14px;
+    padding: 22px 16px;
+    border-radius: 20px 20px 0 0;
+  }
+
+  .footer-name {
+    justify-self: center;
+  }
+
+  .footer-links {
+    justify-self: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+}
