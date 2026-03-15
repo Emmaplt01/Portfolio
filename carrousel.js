@@ -1,3 +1,11 @@
+function triggerWiggle() {
+  const card = section.querySelector(".project-card");
+  if (!card) return;
+
+  card.classList.add("wiggle");
+  setTimeout(() => card.classList.remove("wiggle"), 500);
+}
+
 function initCarousel(section) {
   const cardsContainer = section.querySelector(".carousel-container");
   let cards = Array.from(section.querySelectorAll(".project-card"));
@@ -11,8 +19,10 @@ function initCarousel(section) {
   /* ---------- CAS 1 : 1 CARTE ---------- */
   if (count === 1) {
     if (indicator) indicator.textContent = "1/1";
-    if (leftArrow) leftArrow.disabled = true;
-    if (rightArrow) rightArrow.disabled = true;
+
+    leftArrow.addEventListener("click", triggerWiggle);
+    rightArrow.addEventListener("click", triggerWiggle);
+
     return;
   }
 

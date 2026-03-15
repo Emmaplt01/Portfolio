@@ -8,6 +8,31 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Hepta+Slab:wght@700&display=swap");
 
+@keyframes bounce-wiggle {
+  0% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-12px) rotate(-2deg);
+  }
+  40% {
+    transform: translateX(12px) rotate(2deg);
+  }
+  60% {
+    transform: translateX(-8px) rotate(-1deg);
+  }
+  80% {
+    transform: translateX(8px) rotate(1deg);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.wiggle {
+  animation: bounce-wiggle 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97);
+}
+
 /* ============================================================
    RESET & BASE
    min-height et max-width supprimés : redondants sur body
