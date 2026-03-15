@@ -27,69 +27,6 @@ body {
   min-height: 100vh;
 }
 
-.footer-section {
-  margin-top: auto;
-}
-
-/* ============================================================
-   NAVBAR
-   ============================================================ */
-.navbar {
-  width: 100%;
-  padding: 20px 40px;
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items: center;
-  font-family: "Akshar", sans-serif;
-  box-sizing: border-box;
-}
-
-/* ============================================================
-   PILULES NAVBAR
-   ============================================================ */
-.pill {
-  background-color: white;
-  color: #342c2c;
-  padding: 12px 28px;
-  border-radius: 30px;
-  font-weight: 700;
-  font-size: 18px;
-  display: flex;
-  gap: 25px;
-  align-items: center;
-  text-decoration: none;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-  transition: transform 0.2s ease;
-}
-
-.pill:hover {
-  transform: translateY(-2px);
-}
-
-.name-pill {
-  justify-self: start;
-}
-.contact-pill {
-  justify-self: end;
-}
-
-.nav-links a {
-  color: #342c2c;
-  text-decoration: none;
-  font-weight: 700;
-  white-space: nowrap;
-}
-
-/* ============================================================
-   BURGER & MOBILE MENU — masqués sur desktop
-   ============================================================ */
-.burger {
-  display: none;
-}
-.mobile-menu {
-  display: none;
-}
-
 /* SECTION CONTACT */
 .contact-section {
   width: 100%;
@@ -189,63 +126,10 @@ body {
   transform: scale(1.03);
 }
 
-/* ============================================================
-   FOOTER
-   ============================================================ */
-.footer-section {
-  width: 100%;
-  background-color: #4d67f6;
-}
-
-.footer {
-  width: 100%;
-  background: #ffffff;
-  padding: 40px;
-  display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: center;
-  border-radius: 30px 30px 0 0;
-  box-sizing: border-box;
-}
-
-.footer-name {
-  justify-self: start;
-  font-family: "Akshar", sans-serif;
-  background-color: #4d67f6;
-  color: white;
-}
-
-.footer-links {
-  display: flex;
-  gap: 25px;
-  justify-self: end;
-  background-color: #4d67f6;
-  color: white;
-}
-
-.footer-links a {
-  color: white;
-  text-decoration: none;
-  font-weight: 700;
-  white-space: nowrap;
-  font-family: "Akshar", sans-serif;
-}
-
 /* ================================================================
    GRAND ÉCRAN — 1600px et plus
    ================================================================ */
 @media (min-width: 1600px) {
-  /* ── Navbar ─────────────────────────────────────────────────── */
-  .navbar {
-    padding: 24px 80px;
-  }
-
-  .pill {
-    font-size: 22px;
-    padding: 14px 36px;
-    gap: 30px;
-  }
-
   /* ── Section contact ─────────────────────────────────────────── */
   .contact-title {
     font-size: 4.5rem;
@@ -278,32 +162,12 @@ body {
   .blob-right {
     width: 640px;
   }
-
-  /* ── Footer ──────────────────────────────────────────────────── */
-  .footer {
-    padding: 50px 80px;
-  }
-
-  .footer-links {
-    gap: 32px;
-  }
 } /* fin 1600px+ */
 
 /* ================================================================
    TABLETTE — 768px → 1023px
    ================================================================ */
 @media (min-width: 768px) and (max-width: 1023px) {
-  /* ── Navbar ─────────────────────────────────────────────────── */
-  .navbar {
-    padding: 16px 24px;
-  }
-
-  .pill {
-    font-size: 15px;
-    padding: 10px 18px;
-    gap: 14px;
-  }
-
   /* ── Section contact ─────────────────────────────────────────── */
   .contact-title {
     font-size: 2.4rem;
@@ -334,125 +198,12 @@ body {
     width: 340px;
     right: -80px;
   }
-
-  /* ── Footer ──────────────────────────────────────────────────── */
-  .footer {
-    padding: 30px 24px;
-  }
-
-  .footer-links {
-    gap: 16px;
-  }
 } /* fin tablette */
 
 /* ================================================================
    MOBILE — jusqu'à 767px
    ================================================================ */
 @media (max-width: 767px) {
-  /* ── Navbar : flex row, nom à gauche, burger à droite ───────── */
-  .navbar {
-    padding: 14px 16px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    position: relative; /* ancre le mobile-menu en position:absolute */
-    flex-wrap: wrap;
-  }
-
-  .name-pill {
-    font-size: 15px;
-    padding: 10px 20px;
-    justify-self: unset;
-  }
-
-  .nav-links,
-  .contact-pill {
-    display: none;
-  }
-
-  /* ── Bouton burger ───────────────────────────────────────────── */
-  .burger {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-    width: 44px;
-    height: 44px;
-    background: #4d67f6;
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-    padding: 0;
-    flex-shrink: 0;
-  }
-
-  .burger span {
-    display: block;
-    width: 22px;
-    height: 2.5px;
-    background: white;
-    border-radius: 2px;
-    transition:
-      transform 0.25s ease,
-      opacity 0.25s ease;
-    transform-origin: center;
-  }
-
-  /* Animation croix à l'ouverture */
-  .burger.open span:nth-child(1) {
-    transform: translateY(7.5px) rotate(45deg);
-  }
-  .burger.open span:nth-child(2) {
-    opacity: 0;
-    transform: scaleX(0);
-  }
-  .burger.open span:nth-child(3) {
-    transform: translateY(-7.5px) rotate(-45deg);
-  }
-
-  /* ── Menu déroulant burger ───────────────────────────────────── */
-  /* position:absolute → flotte par-dessus le contenu,
-     ne pousse PAS la page vers le bas */
-  .mobile-menu {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    z-index: 100;
-    background: #342c2c;
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-  }
-
-  .mobile-menu.open {
-    display: flex;
-  }
-
-  .mobile-menu a {
-    color: white;
-    text-decoration: none;
-    font-family: "Akshar", sans-serif;
-    font-weight: 700;
-    font-size: 18px;
-    padding: 14px 24px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-    transition: background 0.15s ease;
-  }
-
-  .mobile-menu a:last-child {
-    border-bottom: none;
-  }
-
-  .mobile-menu a:hover {
-    background: rgba(255, 255, 255, 0.12);
-  }
-
   /* ── Section contact ─────────────────────────────────────────── */
   .contact-section {
     min-height: auto;
@@ -511,50 +262,6 @@ body {
     width: 160px;
     right: -36px;
     top: 28%;
-  }
-
-  /* ── Burger sur fond bleu → barres blanches déjà ok,
-     mais on s'assure que le fond reste #4d67f6 ──────────────── */
-  .burger {
-    background: white;
-  }
-
-  .burger span {
-    background: #4d67f6;
-  }
-
-  /* ── Menu mobile ─────────────────────────────────────────────── */
-  .mobile-menu {
-    background: white;
-  }
-
-  .mobile-menu a {
-    color: #342c2c;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-  }
-
-  .mobile-menu a:hover {
-    background: rgba(0, 0, 0, 0.05);
-  }
-
-  /* ── Footer : 2 colonnes → 1 colonne centrée ────────────────── */
-  .footer {
-    grid-template-columns: 1fr;
-    justify-items: center;
-    gap: 14px;
-    padding: 22px 16px;
-    border-radius: 20px 20px 0 0;
-  }
-
-  .footer-name {
-    justify-self: center;
-  }
-
-  .footer-links {
-    justify-self: center;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
   }
 } /* fin mobile */
 
