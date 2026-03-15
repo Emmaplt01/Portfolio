@@ -367,7 +367,7 @@ body {
   .retour-link {
     font-size: 16px;
     padding: 10px 20px;
-    margin: 0 0 1rem 1rem;
+    margin: 1.5rem 0 1rem 1rem; /* margin-top ajouté pour espacer du bouton */
     gap: 8px;
   }
   .retour-link img {
@@ -377,17 +377,59 @@ body {
 }
 
 /* ============================================================
-   OVERRIDE FOOTER — fond blanc sur page bleue
-   .section-footer : fond bleu #4d67f6 (couleur du body)
-   .footer : fond blanc #ffffff (contraste sur fond bleu)
+   OVERRIDE FOOTER — page contact (fond bleu)
+   .section-footer : fond bleu = continuité avec le body
+   .footer : fond blanc pour contraster
+   Les pilules du footer restent bleues (#4d67f6), texte blanc.
    ============================================================ */
 .section-footer {
   width: 100%;
-  background-color: #4d67f6 !important; /* même couleur que le body */
-  margin-top: auto; /* colle le footer en bas */
+  background-color: #4d67f6 !important;
+  margin-top: auto;
 }
 
 .footer {
-  background: #ffffff !important; /* blanc, écrase footer.css */
+  background: #ffffff !important;
   border-radius: 30px 30px 0 0;
+}
+
+/* Pilules du footer : fond bleu, texte blanc — écrase l'override
+   général .pill { blanc / noir } défini plus haut dans ce fichier */
+.footer .pill,
+.footer-name,
+.footer-links {
+  background-color: #4d67f6 !important;
+  color: white !important;
+}
+
+.footer-links a {
+  color: white !important;
+}
+
+/* Responsive : maintien sur toutes les tailles */
+@media (min-width: 1600px) {
+  .footer .pill,
+  .footer-name,
+  .footer-links {
+    background-color: #4d67f6 !important;
+    color: white !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .footer .pill,
+  .footer-name,
+  .footer-links {
+    background-color: #4d67f6 !important;
+    color: white !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .footer .pill,
+  .footer-name,
+  .footer-links {
+    background-color: #4d67f6 !important;
+    color: white !important;
+  }
 }
