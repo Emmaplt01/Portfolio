@@ -32,55 +32,6 @@ body {
 }
 
 /* ============================================================
-   NAVBAR
-   ============================================================ */
-.navbar {
-  width: 100%;
-  padding: 20px 40px;
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items: center;
-  font-family: "Akshar", sans-serif;
-  box-sizing: border-box;
-}
-
-/* ============================================================
-   PILULES NAVBAR — style commun
-   ============================================================ */
-.pill {
-  background-color: #4d67f6;
-  color: white;
-  padding: 12px 28px;
-  border-radius: 30px;
-  font-weight: 700;
-  font-size: 18px;
-  display: flex;
-  gap: 25px;
-  align-items: center;
-  text-decoration: none;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-  transition: transform 0.2s ease;
-}
-
-.pill:hover {
-  transform: translateY(-2px);
-}
-
-.name-pill {
-  justify-self: start;
-}
-.contact-pill {
-  justify-self: end;
-}
-
-.nav-links a {
-  color: white;
-  text-decoration: none;
-  font-weight: 700;
-  white-space: nowrap;
-}
-
-/* ============================================================
    PILULES DE TRANSITION ENTRE SECTIONS
    ============================================================ */
 .about-pill,
@@ -109,17 +60,6 @@ body {
   right: 0;
   background: #ece771;
   color: #23232f;
-}
-
-/* ============================================================
-   BURGER & MOBILE MENU — masqués par défaut sur desktop
-   Activés uniquement dans @media (max-width: 767px)
-   ============================================================ */
-.burger {
-  display: none;
-}
-.mobile-menu {
-  display: none;
 }
 
 /* ============================================================
@@ -395,43 +335,6 @@ body {
   color: #ffffff;
 }
 
-/* ============================================================
-   FOOTER
-   ============================================================ */
-.footer-section {
-  width: 100%;
-  background-color: #ece771;
-}
-
-.footer {
-  width: 100%;
-  background: #ffffff;
-  padding: 40px;
-  display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: center;
-  border-radius: 30px 30px 0 0;
-  box-sizing: border-box;
-}
-
-.footer-name {
-  justify-self: start;
-  font-family: "Akshar", sans-serif;
-}
-.footer-links {
-  display: flex;
-  gap: 25px;
-  justify-self: end;
-}
-
-.footer-links a {
-  color: white;
-  text-decoration: none;
-  font-weight: 700;
-  white-space: nowrap;
-  font-family: "Akshar", sans-serif;
-}
-
 /* ================================================================
    RESPONSIVE — breakpoints complets
    Mobile      : jusqu'à 767px
@@ -445,10 +348,6 @@ body {
    GRAND ÉCRAN — 1600px et plus
    ================================================================ */
 @media (min-width: 1600px) {
-  .navbar {
-    padding: 24px 80px;
-  }
-
   .hello-text,
   .hello-bang {
     font-size: 220px;
@@ -499,10 +398,6 @@ body {
   .email-card img,
   .github-card img {
     width: 200px;
-  }
-
-  .footer {
-    padding: 50px 80px;
   }
 } /* fin 1600px+ */
 
@@ -567,16 +462,6 @@ body {
    Layout 2 colonnes conservé, tailles réduites
    ================================================================ */
 @media (min-width: 768px) and (max-width: 1023px) {
-  /* Navbar */
-  .navbar {
-    padding: 16px 24px;
-  }
-  .pill {
-    font-size: 15px;
-    padding: 10px 18px;
-    gap: 14px;
-  }
-
   /* Hero */
   .hero {
     min-height: 75vh;
@@ -697,14 +582,6 @@ body {
   .email-text {
     font-size: 12px;
   }
-
-  /* Footer */
-  .footer {
-    padding: 30px 24px;
-  }
-  .footer-links {
-    gap: 16px;
-  }
 } /* fin tablette */
 
 /* ================================================================
@@ -712,103 +589,6 @@ body {
    Colonne unique, blobs masqués, pilules fixes → statiques
    ================================================================ */
 @media (max-width: 767px) {
-  /* ── Navbar mobile : nom à gauche, burger à droite ── */
-  .navbar {
-    padding: 14px 16px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    position: relative;
-    flex-wrap: wrap;
-  }
-
-  .name-pill {
-    font-size: 15px;
-    padding: 10px 20px;
-    justify-self: unset;
-  }
-  .nav-links,
-  .contact-pill {
-    display: none;
-  }
-
-  /* Burger */
-  .burger {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-    width: 44px;
-    height: 44px;
-    background: #4d67f6;
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-    padding: 0;
-    flex-shrink: 0;
-  }
-
-  .burger span {
-    display: block;
-    width: 22px;
-    height: 2.5px;
-    background: white;
-    border-radius: 2px;
-    transition:
-      transform 0.25s ease,
-      opacity 0.25s ease;
-    transform-origin: center;
-  }
-
-  .burger.open span:nth-child(1) {
-    transform: translateY(7.5px) rotate(45deg);
-  }
-  .burger.open span:nth-child(2) {
-    opacity: 0;
-    transform: scaleX(0);
-  }
-  .burger.open span:nth-child(3) {
-    transform: translateY(-7.5px) rotate(-45deg);
-  }
-
-  /* Menu déroulant */
-  .mobile-menu {
-    display: none;
-    flex-direction: column;
-    gap: 0;
-    width: 100%;
-    background: #4d67f6;
-    border-radius: 16px;
-    margin-top: 10px;
-    overflow: hidden;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-  }
-
-  .mobile-menu.open {
-    display: flex;
-  }
-
-  .mobile-menu a {
-    color: white;
-    text-decoration: none;
-    font-family: "Akshar", sans-serif;
-    font-weight: 700;
-    font-size: 18px;
-    padding: 14px 24px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-    transition: background 0.15s ease;
-  }
-
-  .mobile-menu a:last-child {
-    border-bottom: none;
-  }
-  .mobile-menu a:hover {
-    background: rgba(255, 255, 255, 0.12);
-  }
-
   /* Hero */
   .hero {
     min-height: auto;
@@ -1042,23 +822,5 @@ body {
     text-align: center;
     padding: 0 4px;
     word-break: break-all;
-  }
-
-  /* Footer : 2 colonnes → 1 colonne centrée */
-  .footer {
-    grid-template-columns: 1fr;
-    justify-items: center;
-    gap: 14px;
-    padding: 22px 16px;
-    border-radius: 20px 20px 0 0;
-  }
-  .footer-name {
-    justify-self: center;
-  }
-  .footer-links {
-    justify-self: center;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
   }
 } /* fin mobile */

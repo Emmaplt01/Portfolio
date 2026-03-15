@@ -557,3 +557,60 @@ body {
     gap: 10px;
   }
 } /* fin mobile */
+
+.retour-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #ec6d49;
+  width: 6rem;
+  color: white;
+  text-decoration: none;
+  font-family: "Akshar", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  padding: 12px 28px;
+  border-radius: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease;
+  margin: 0 0 1.5rem 6rem; /* aligne avec le padding de .project-page */
+}
+
+.retour-link:hover {
+  transform: translateY(-2px);
+}
+
+.retour-link img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  display: block;
+}
+
+/* ── Grand écran ─────────────────────────────────────────────── */
+@media (min-width: 1600px) {
+  .retour-link {
+    font-size: 22px;
+    padding: 14px 36px;
+    margin-left: 8rem;
+    gap: 12px;
+  }
+  .retour-link img {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+/* ── Mobile ──────────────────────────────────────────────────── */
+@media (max-width: 767px) {
+  .retour-link {
+    font-size: 16px;
+    padding: 10px 20px;
+    margin: 0 0 1rem 1rem;
+    gap: 8px;
+  }
+  .retour-link img {
+    width: 20px;
+    height: 20px;
+  }
+}

@@ -12,6 +12,35 @@
      détermine la hauteur naturellement.
    - max-width:100% supprimé : redondant avec width:100%.
    ============================================================ */
+
+@keyframes wiggle {
+  0% {
+    transform: translateX(0);
+  }
+  15% {
+    transform: translateX(-8px);
+  }
+  30% {
+    transform: translateX(8px);
+  }
+  45% {
+    transform: translateX(-6px);
+  }
+  60% {
+    transform: translateX(6px);
+  }
+  75% {
+    transform: translateX(-3px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.wiggle {
+  animation: wiggle 0.45s ease;
+}
+
 html {
   scroll-behavior: smooth;
 }
