@@ -155,6 +155,39 @@ body {
    MOBILE — jusqu'à 767px
    ================================================================ */
 @media (max-width: 767px) {
+  /* ── Skills section ─────────────────────────────────────────── */
+  .skills-section {
+    width: calc(100% - 32px);
+    margin: 0 16px;
+    padding: 24px 16px;
+    border-radius: 20px;
+    min-height: auto;
+  }
+
+  /* Grille : 3 icônes par ligne */
+  .skills-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 100%;
+  }
+
+  .skills-grid img {
+    width: 60px;
+    height: 60px;
+  }
+
+  /* Texte intro */
+  .text-section {
+    width: calc(100% - 32px);
+    margin: 16px;
+    border-radius: 20px;
+  }
+
+  .projects-text {
+    font-size: 14px;
+    width: 90%;
+  }
+
   /* ── Section hero ───────────────────────────────────────────── */
   .projects-section {
     min-height: auto;
