@@ -27,6 +27,43 @@ body {
   min-height: 100vh;
 }
 
+/* ============================================================
+   OVERRIDE HEADER — pilules blanches sur fond bleu
+   Sur cette page le body est #4d67f6, donc on inverse :
+   fond pilule : blanc | texte : noir foncé
+   ============================================================ */
+.pill {
+  background-color: white;
+  color: #23232f;
+}
+
+.nav-links a {
+  color: #23232f;
+}
+
+/* Burger mobile : fond blanc, barres noires */
+.burger {
+  background: white !important;
+}
+
+.burger span {
+  background: #23232f !important;
+}
+
+/* Menu déroulant mobile : fond blanc, texte noir */
+.mobile-menu {
+  background: white !important;
+}
+
+.mobile-menu a {
+  color: #23232f !important;
+  border-bottom-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+.mobile-menu a:hover {
+  background: rgba(0, 0, 0, 0.05) !important;
+}
+
 /* SECTION CONTACT */
 .contact-section {
   width: 100%;
