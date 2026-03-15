@@ -1,9 +1,10 @@
-function triggerWiggle() {
-  const card = section.querySelector(".project-card");
-  if (!card) return;
-
-  card.classList.add("wiggle");
-  setTimeout(() => card.classList.remove("wiggle"), 500);
+function triggerWiggle(btn) {
+  if (!btn) return;
+  // On anime l'<img> dans le bouton : le transform du bouton est
+  // écrasé par translateY(-50%) du CSS, l'image est libre.
+  const target = btn.querySelector("img") || btn;
+  target.classList.add("wiggle");
+  setTimeout(() => target.classList.remove("wiggle"), 500);
 }
 
 function initCarousel(section) {
@@ -20,8 +21,8 @@ function initCarousel(section) {
   if (count === 1) {
     if (indicator) indicator.textContent = "1/1";
 
-    leftArrow.addEventListener("click", triggerWiggle);
-    rightArrow.addEventListener("click", triggerWiggle);
+    leftArrow.addEventListener("click", () => triggerWiggle(leftArrow));
+    rightArrow.addEventListener("click", () => triggerWiggle(rightArrow));
 
     return;
   }
