@@ -280,7 +280,7 @@ body {
   border-radius: 30px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   transition: transform 0.2s ease;
-  margin: 0 0 1.5rem 6rem; /* aligne avec le padding de .project-page */
+  margin: 1rem 0 1.5rem 6rem; /* aligne avec le padding de .project-page */
 }
 
 .retour-link:hover {
@@ -320,4 +320,20 @@ body {
     width: 20px;
     height: 20px;
   }
+}
+
+/* ============================================================
+   OVERRIDE FOOTER — fond blanc sur page bleue
+   .section-footer : fond bleu #4d67f6 (couleur du body)
+   .footer : fond blanc #ffffff (contraste sur fond bleu)
+   ============================================================ */
+.section-footer {
+  width: 100%;
+  background-color: #4d67f6; /* même couleur que le body */
+  margin-top: auto; /* colle le footer en bas */
+}
+
+.footer {
+  background: #ffffff !important; /* blanc, écrase footer.css */
+  border-radius: 30px 30px 0 0;
 }
