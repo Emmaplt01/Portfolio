@@ -1,8 +1,8 @@
-function triggerWiggle(btn) {
-  if (!btn) return;
-  // On anime l'<img> dans le bouton : le transform du bouton est
-  // écrasé par translateY(-50%) du CSS, l'image est libre.
-  const target = btn.querySelector("img") || btn;
+function triggerWiggle(target) {
+  if (!target) return;
+  // Force le reflow pour relancer l'animation si on clique vite
+  target.classList.remove("wiggle");
+  void target.offsetWidth;
   target.classList.add("wiggle");
   setTimeout(() => target.classList.remove("wiggle"), 500);
 }
@@ -21,8 +21,12 @@ function initCarousel(section) {
   if (count === 1) {
     if (indicator) indicator.textContent = "1/1";
 
-    leftArrow.addEventListener("click", () => triggerWiggle(leftArrow));
-    rightArrow.addEventListener("click", () => triggerWiggle(rightArrow));
+    leftArrow.addEventListener("click", function () {
+      triggerWiggle(leftArrow.querySelector("img"));
+    });
+    rightArrow.addEventListener("click", function () {
+      triggerWiggle(rightArrow.querySelector("img"));
+    });
 
     return;
   }
